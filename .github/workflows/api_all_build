@@ -1,4 +1,4 @@
-name: Build API for Linux
+name: Build API for Linux & Win
 
 on:
   push:
