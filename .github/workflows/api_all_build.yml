@@ -28,6 +28,7 @@ jobs:
         name: Output
         path: ./api/target/x86_64-unknown-linux-gnu/release/blessing-skin-status-api
 
+
   build-windows:
     runs-on: windows-latest
 
