@@ -26,5 +26,5 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: status_api-linux_x86_64
+        name: Output
         path: ./api/target/x86_64-unknown-linux-gnu/release/status_api-linux_x86_64
