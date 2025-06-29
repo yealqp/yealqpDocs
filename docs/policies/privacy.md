@@ -1,3 +1,6 @@
+> [!CAUTION] 此文档修改自Littleskin开源官方文档
+> [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
+
 # 隐私声明
 
 在使用 BYS 的过程中，BYS（以下简称“我们”）可能会收集用户（以下简称“你”）的一些隐私信息（以下简称“信息”）。我们十分重视你的信息的安全，这份声明将阐述我们为何、如何使用、存储和保护你的信息。

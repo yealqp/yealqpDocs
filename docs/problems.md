@@ -1,3 +1,6 @@
+> [!CAUTION] 此文档修改自Littleskin开源官方文档
+> [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
+
 # 遇到问题了咋办
 
 > 任何事物都不可能尽善尽美，BYS 也是如此。

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https:/docs.yealqp.fun/favicon.ico" width="64" />
+<img src="./favicon.ico" width="64" />
 
 # Yealqp Docs
 

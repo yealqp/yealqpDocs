@@ -3,13 +3,15 @@ outline: [2, 3]
 ---
 
 <!-- markdownlint-disable MD024 -->
+> [!CAUTION] 此文档修改自Littleskin开源官方文档
+> [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
 
 # BYS 用户服务条款
 
 ## 太长不看版
 
 ::: warning 注意
-本浓缩版本旨在使用户快速理解本服务条款梗概，并不具备任何实际效益。所有内容请以“详细条款”部分为准。
+本浓缩版本旨在使用户快速理解本服务条款梗概，并不具备任何实际效益。。
 :::
 
 ### 不要做这些

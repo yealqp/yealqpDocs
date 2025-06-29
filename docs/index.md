@@ -22,5 +22,5 @@ Byd Yealqp Skin皮肤站在本文档中使用BYS作为简称
 - 联系邮箱:yealqp@163.com
 
 ## 免责声明
-> [!CAUTION] 本文档自定义组件的源码以及部分BYS相关文档均修改自Littleskin开源官方文档
+> [!CAUTION] 本文档部分自定义组件以及部分BYS相关文档均修改自Littleskin官方开源文档
 > [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)

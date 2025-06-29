@@ -1,3 +1,6 @@
+> [!CAUTION] 此文档修改自Littleskin开源官方文档
+> [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
+
 # 游戏内加载相关
 
 [[toc]]
@@ -54,7 +57,7 @@
 
 通常，只有在多人游戏中使用皮肤 Mod 时才会遇到此问题。
 
-在此情境下，只有 **正确安装并配置** 皮肤 Mod 后才能加载来自 LittleSkin 的材质。
+在此情境下，只有 **正确安装并配置** 皮肤 Mod 后才能加载来自 BYS 的材质。
 
 🛠️ 如果你想让别人也看见你的材质，请<mark>让他们也正确安装并配置皮肤 Mod</mark>。
 
@@ -66,14 +69,14 @@
 > 如果你使用外置登录加载材质，并遇到了如标题所说的问题，请阅读 [下一条目👇](#no-skin-in-server)。
 
 > [!NOTE] 需要重新进入游戏
-> 当你在 LittleSkin 中更新了角色的材质，大多数的皮肤 Mod 都需要重新进入游戏。
+> 当你在 BYS 中更新了角色的材质，大多数的皮肤 Mod 都需要重新进入游戏。
 >
-> 只有这样，Mod 才会重新从 LittleSkin 获取角色的材质信息。
+> 只有这样，Mod 才会重新从 BYS 获取角色的材质信息。
 >
 > 除此之外，皮肤 Mod 还可能会将你的材质信息进行缓存，这种情况请参考下方的解决方案。
 
 > [!NOTE] 与正版玩家重名的情况
-> 如果有正版玩家的玩家名与你在 LittleSkin 上的角色名相同，在没有对 CustomSkinLoader 进行调整的情况下，你就会看到正版玩家的皮肤。
+> 如果有正版玩家的玩家名与你在 BYS 上的角色名相同，在没有对 CustomSkinLoader 进行调整的情况下，你就会看到正版玩家的皮肤。
 >
 > 若正版玩家没有设置皮肤，你将会看到 Steve 或 Alex 的皮肤。这非常容易让人产生困惑和误解。
 >
@@ -85,12 +88,12 @@
 
 🛠️ 解决方案：正确安装并配置皮肤 Mod。
 
-你可以在 [注册指南](/faq/reg#%E5%90%AF%E5%8A%A8%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B) 中学习如何正确配置皮肤 Mod；
+你可以在 [注册指南](/faq/reg#luncher) 中学习如何正确配置皮肤 Mod；
 :::
 
-::: details 2. 你安装的其它 Mod（如 _NonUpdate / 不再有更新_）干扰了皮肤 Mod 与 LittleSkin 之间的连接 {#skinport}
+::: details 2. 你安装的其它 Mod（如 _NonUpdate / 不再有更新_）干扰了皮肤 Mod 与 BYS 之间的连接 {#skinport}
 
-🛠️ 解决方案：删除这些 Mod，或让它们绕过皮肤 Mod 与 LittleSkin 之间的连接。
+🛠️ 解决方案：删除这些 Mod，或让它们绕过皮肤 Mod 与 BYS 之间的连接。
 
 可参考下拉框中的解决方案。
 ::: details SkinPort
@@ -104,7 +107,7 @@
  - [GitHub Release](https://github.com/zlainsama/SkinPort/releases/latest)
 
  > [!TIP] 提示
- >LittleSkin 仅支持 `1.7.10-v10a` 或更高版本的 SkinPort。
+ >BYS 仅支持 `1.7.10-v10a` 或更高版本的 SkinPort。
  >如果你使用 Yggdrasil 外置登录加载 Alex 材质，则只需要安装 SkinPort 即可，无需修改配置文件。
 
  > [!danger] 谨记
@@ -116,8 +119,8 @@
  ```java:line-numbers
  client {
     S:hostCustomServer=http://example.com
-    S:hostCustomServer2Cape=https://littleskin.cn/cape/%name%.png  // [!code focus]
-    S:hostCustomServer2Skin=https://littleskin.cn/skin/%name%.png  // [!code focus]
+    S:hostCustomServer2Cape=https://BYS.cn/cape/%name%.png  // [!code focus]
+    S:hostCustomServer2Skin=https://BYS.cn/skin/%name%.png  // [!code focus]
     B:useCrafatar=false
     B:useCustomServer=false
     B:useCustomServer2=true
@@ -125,7 +128,7 @@
  }
  ```
 
- 保存退出，再次打开 Minecraft 之后，你应该就能看到你在 LittleSkin 中设置的材质了。
+ 保存退出，再次打开 Minecraft 之后，你应该就能看到你在 BYS 中设置的材质了。
  :::
 
 ::: details 3. 你的材质被皮肤 Mod 缓存了 <Badge type="tip" text="🎯 最为常见" />
@@ -175,20 +178,20 @@
 👇 此处特别列出上述 Mod 的 **配置方法**，以便在禁用更新的同时不影响 BYS 外置登录的正常工作。
 
 ::: details 🛠️ NonUpdate
-将 LittleSkin 的域名添加至 `.minecraft/nu-whitelist.txt`：
+将 BYS 的域名添加至 `.minecraft/nu-whitelist.txt`：
 
 ```txt{5}
 minecraft.net
 mojang.com
 // ...
 
-littleskin.cn
+BYS.cn
 ```
 
 :::
 
 ::: details 🛠️ NonUpdate Reloaded
-将 LittleSkin 的域名添加至 `.minecraft/config/nonupdate_reloaded.json`:
+将 BYS 的域名添加至 `.minecraft/config/nonupdate_reloaded.json`:
 
 ```jsonc
 {
@@ -197,7 +200,7 @@ littleskin.cn
     "$eminecraftservices.com",
     "$emojang.com",
     "$eminecraft.net"
-    "$elittleskin.cn" // [!code ++]
+    "$eBYS.cn" // [!code ++]
   ],
   // ...
 }

@@ -26,6 +26,9 @@ import BSButton from '../../../components/BSButton.vue'
 import BSSection from '../../../components/BSSection.vue'
 import NCard from '../../../components/NCard.vue'
 import Helpme from "../../../components/Helpme.vue"
+import Status from "../../../components/ServerStatus.vue"
+import SkinStatus from "../../../components/BlessingSkinStatus.vue"
+import SkinDashboard from "../../../components/BlessingSkinDashboard.vue"
 
 export const Theme: ThemeConfig = {
     extends: DefaultTheme,
@@ -55,6 +58,9 @@ export const Theme: ThemeConfig = {
             .component('BSSection', BSSection)
             .component('NCard', NCard)
             .component("Helpme", Helpme)
+            .component('Status', Status)
+            .component('SkinStatus', SkinStatus)
+            .component('SkinDashboard', SkinDashboard)
     }
 }
 export default Theme

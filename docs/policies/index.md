@@ -1,3 +1,6 @@
+> [!CAUTION] 此文档修改自Littleskin开源官方文档
+> [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
+
 # 政策条款
 
 ---

@@ -1,10 +1,7 @@
-<script setup>
-import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
-import Status from '../components/ServerStatus.vue'
-import SkinStatus from '../components/BlessingSkinStatus.vue'
-import SkinDashboard from '../components/BlessingSkinDashboard.vue'
-</script>
-
+# 各项服务运行状态
+>如果有数据就是运行正常
+>没数据就是没连上或者抽风
+>抽风了点刷新就行了
 <Status />
 <SkinDashboard />
 <SkinStatus />
