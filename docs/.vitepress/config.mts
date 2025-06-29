@@ -121,7 +121,6 @@ export default defineConfig({
                 { text: "《嘴硬哥》", link: "/heros/hanliang" },
                 { text: "《说话姐》", link: "/heros/liusheng" },
                 { text: "《应当哥》", link: "/heros/yasai" },
-                { text: "示例", link: "/example" },
               ],
             },
           ],
