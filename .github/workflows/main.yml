@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Output
-        path: ./api/target/x86_64-unknown-linux-gnu/release/status_api-linux_x86_64
+        path: ./api/target/x86_64-unknown-linux-gnu/release/blessing-skin-status-api
