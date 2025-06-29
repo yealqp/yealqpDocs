@@ -9,7 +9,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  build-linux:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,6 @@ jobs:
         name: Output
         path: ./api/target/x86_64-unknown-linux-gnu/release/blessing-skin-status-api
 
-jobs:
   build-windows:
     runs-on: windows-latest
 
