@@ -15,7 +15,7 @@ mod utils;
 
 use database::Database;
 use types::Config;
-use handlers::{health_check, get_status, get_dashboard};
+use handlers::{health_check, get_dashboard};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -50,7 +50,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 创建路由
     let app = Router::new()
         .route("/health", get(health_check))
-        .route("/api/status", get(get_status))
         .route("/api/dashboard", get(get_dashboard))
         .layer(cors)
         .with_state(state);

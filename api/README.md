@@ -1,10 +1,9 @@
-# Blessing Skin Status API
+# Blessing Skin Dashboard API
 
-这是一个用于获取 Blessing Skin 服务器状态和仪表盘数据的 API 服务。
+这是一个用于获取 Blessing Skin 仪表盘数据的 API 服务。
 
 ## 功能特性
 
-- 🔍 抓取 Blessing Skin 服务器状态信息
 - 📊 获取仪表盘统计数据
 - 🏥 健康检查端点
 - 🔒 自定义错误处理
@@ -66,18 +65,15 @@ host = "127.0.0.1"
 port = 3000
 
 [database]
-url = "mysql://username:password@localhost:3306/blessingskin"
+url = "mysql://username:password@host:port/"
 ```
 
-**注意**: 请将 `username`、`password`、`localhost`、`3306` 替换为你的实际 MySQL 连接信息。
+**注意**: 请将 `username`、`password`、`host`、`port` 替换为你的实际 MySQL 连接信息。
 
 ## API 端点
 
 ### GET /health
 健康检查端点
-
-### GET /api/status
-获取 Blessing Skin 服务器状态
 
 ### GET /api/dashboard
 获取仪表盘统计数据

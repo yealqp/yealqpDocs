@@ -1,6 +1,6 @@
 
 use sqlx::mysql::MySqlPool;
-use crate::types::{DashboardData, SkinStatusData, Plugin};
+use crate::types::{DashboardData, Plugin};
 use crate::error::AppError;
 use tracing::info;
 
@@ -71,36 +71,6 @@ impl Database {
         info!("成功查询仪表盘数据: 用户={}, 角色={}, 皮肤={}, 存储={}", 
               data.users_count, data.players_count, data.textures_count, data.storage_size);
         
-        Ok(data)
-    }
-
-    /// 获取服务器状态数据
-    pub async fn fetch_status(&self) -> Result<SkinStatusData, AppError> {
-        info!("开始查询服务器状态数据...");
-
-        // 这里可以根据需要查询数据库中的配置信息
-        // 或者返回默认的系统信息
-        let data = SkinStatusData {
-            version: "6.0.2".to_string(),
-            environment: "production".to_string(),
-            debug: false,
-            commit: "".to_string(),
-            laravel_version: "8.75.0".to_string(),
-            php_version: "8.0.26".to_string(),
-            web_server: "nginx/1.26.3".to_string(),
-            os: "Linux 6.1.0-10-amd64 x86_64".to_string(),
-            db_type: "MySQL/MariaDB".to_string(),
-            db_host: "localhost".to_string(),
-            db_port: "3306".to_string(),
-            db_user: "blessingskin".to_string(),
-            db_name: "blessingskin".to_string(),
-            plugins: vec![Plugin {
-                name: "Yggdrasil API".to_string(),
-                version: "5.2.1".to_string(),
-            }],
-        };
-
-        info!("成功查询服务器状态数据");
         Ok(data)
     }
 

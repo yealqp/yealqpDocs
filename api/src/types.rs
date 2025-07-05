@@ -29,25 +29,6 @@ pub struct ApiResponse<T> {
     pub timestamp: DateTime<Utc>,
 }
 
-/// Blessing Skin 状态数据结构
-#[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct SkinStatusData {
-    pub version: String,
-    pub environment: String,
-    pub debug: bool,
-    pub commit: String,
-    pub laravel_version: String,
-    pub php_version: String,
-    pub web_server: String,
-    pub os: String,
-    pub db_type: String,
-    pub db_host: String,
-    pub db_port: String,
-    pub db_user: String,
-    pub db_name: String,
-    pub plugins: Vec<Plugin>,
-}
-
 /// 仪表盘数据结构
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct DashboardData {
@@ -75,27 +56,6 @@ pub struct HealthResponse {
     pub service: String,
     pub version: String,
     pub timestamp: DateTime<Utc>,
-}
-
-impl Default for SkinStatusData {
-    fn default() -> Self {
-        Self {
-            version: String::new(),
-            environment: String::new(),
-            debug: false,
-            commit: String::new(),
-            laravel_version: String::new(),
-            php_version: String::new(),
-            web_server: String::new(),
-            os: String::new(),
-            db_type: String::new(),
-            db_host: String::new(),
-            db_port: String::new(),
-            db_user: String::new(),
-            db_name: String::new(),
-            plugins: Vec::new(),
-        }
-    }
 }
 
 impl Default for DashboardData {
