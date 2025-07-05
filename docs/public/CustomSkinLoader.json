@@ -1,0 +1,15 @@
+{
+    "enable": true,
+    "loadlist": [
+      {
+        "name": "BYS",
+        "type": "CustomSkinAPI",
+        "root": "https://skin.yealqp.fun/",
+        "userAgent": "CustomSkinLoader/ltsk-manual-edited"
+      },
+      {
+        "name": "Mojang",
+        "type": "MojangAPI"
+      }
+    ]
+  }

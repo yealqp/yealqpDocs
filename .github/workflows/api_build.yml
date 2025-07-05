@@ -1,0 +1,64 @@
+name: Build API for Linux & Win
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Rust target
+      run: rustup target add x86_64-unknown-linux-gnu
+
+    - name: Build Linux x86_64 binary
+      working-directory: ./api
+      run: cargo build --release --target x86_64-unknown-linux-gnu
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: blessing-skin-status-api-linux
+        path: ./api/target/x86_64-unknown-linux-gnu/release/blessing-skin-status-api
+
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: x86_64-pc-windows-msvc
+        override: true
+
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          api/target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
+    - name: Build Windows x86_64 binary
+      working-directory: ./api
+      run: cargo build --release --target x86_64-pc-windows-msvc
+
+    - name: Upload Windows Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: blessing-skin-status-api-windows
+        path: ./api/target/x86_64-pc-windows-msvc/release/blessing-skin-status-api.exe
