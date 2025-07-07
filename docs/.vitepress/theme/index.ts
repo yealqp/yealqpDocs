@@ -29,6 +29,7 @@ import Helpme from "../../../components/Helpme.vue"
 import Status from "../../../components/ServerStatus.vue"
 import SkinDashboard from "../../../components/BlessingSkinDashboard.vue"
 import CloudServer from "../../../components/CloudServerDashboard.vue"
+import CosInfo from "../../../components/CosBucketInfo.vue"
 
 export const Theme: ThemeConfig = {
     extends: DefaultTheme,
@@ -61,6 +62,7 @@ export const Theme: ThemeConfig = {
             .component('Status', Status)
             .component('SkinDashboard', SkinDashboard)
             .component('CloudServer', CloudServer)
+            .component('CosInfo', CosInfo)
     }
 }
 export default Theme

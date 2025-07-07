@@ -7,6 +7,7 @@ pub struct Config {
     pub server: ServerConfig,
     pub database: DatabaseConfig,
     pub ssh_info: Option<SshInfo>,
+    pub cos_s3: Option<CosS3Config>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -32,6 +33,15 @@ pub struct SshHost {
     pub username: String,
     pub password: String,
     pub api: Option<String>, // 用于唯一标识和查询
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct CosS3Config {
+    pub bucket: String,
+    pub region: String,
+    pub endpoint: String,
+    pub access_key: String,
+    pub secret_key: String,
 }
 
 /// API 响应结构

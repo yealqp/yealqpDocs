@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { withDefaults, defineProps, computed, ref, onMounted, watch } from 'vue'
+import { withDefaults, defineProps, computed, ref, onMounted, watch, onUnmounted } from 'vue'
 const props = withDefaults(
   defineProps<{
     IDCname: string,
@@ -91,8 +91,24 @@ async function fetchApiData() {
   }
 }
 
-onMounted(fetchApiData)
-watch(() => props.api, fetchApiData)
+let timer: number | undefined
+
+onMounted(() => {
+  fetchApiData()
+  if (props.api) {
+    timer = window.setInterval(fetchApiData, 2000)
+  }
+})
+onUnmounted(() => {
+  if (timer) clearInterval(timer)
+})
+watch(() => props.api, (val) => {
+  fetchApiData()
+  if (timer) clearInterval(timer)
+  if (val) {
+    timer = window.setInterval(fetchApiData, 2000)
+  }
+})
 </script>
 
 <template>
@@ -103,8 +119,8 @@ watch(() => props.api, fetchApiData)
         <Badge v-if="props.link" type="tip" style="margin-left:10px;cursor:pointer;" @click="openLink">控制台</Badge>
       </div>
       <div class="card-text text">
-        <div class="server-config">配置：{{ props.config }}</div>
-        <div>到期：{{ props.time }}</div>
+        <div class="server-config">{{ props.config }}</div>
+        <div>到期时间{{ props.time }}</div>
         <div>{{ props.intro }}</div>
         <div v-if="props.api" style="margin-top:8px;font-size:0.95em;color:var(--vp-c-text-1);word-break:break-all;">
           <span v-if="!cpuPercent && !memPercent && !apiData">正在获取数据...</span>
