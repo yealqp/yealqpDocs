@@ -28,6 +28,7 @@ import NCard from '../../../components/NCard.vue'
 import Helpme from "../../../components/Helpme.vue"
 import Status from "../../../components/ServerStatus.vue"
 import SkinDashboard from "../../../components/BlessingSkinDashboard.vue"
+import CloudServer from "../../../components/CloudServerDashboard.vue"
 
 export const Theme: ThemeConfig = {
     extends: DefaultTheme,
@@ -59,6 +60,7 @@ export const Theme: ThemeConfig = {
             .component("Helpme", Helpme)
             .component('Status', Status)
             .component('SkinDashboard', SkinDashboard)
+            .component('CloudServer', CloudServer)
     }
 }
 export default Theme

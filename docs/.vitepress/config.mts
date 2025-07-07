@@ -84,6 +84,7 @@ export default defineConfig({
               items: [
                 { text: "赞助我们", link: "/pay" },
                 { text: "服务器状态", link: "/status" },
+                { text: "云服务器状态", link: "/server" },
               ],
             },
             {

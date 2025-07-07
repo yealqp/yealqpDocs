@@ -6,6 +6,7 @@ use chrono::{DateTime, Utc};
 pub struct Config {
     pub server: ServerConfig,
     pub database: DatabaseConfig,
+    pub ssh_info: Option<SshInfo>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -17,6 +18,20 @@ pub struct ServerConfig {
 #[derive(Debug, Deserialize, Clone)]
 pub struct DatabaseConfig {
     pub url: String,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct SshInfo {
+    pub hosts: Vec<SshHost>,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct SshHost {
+    pub host: String,
+    pub port: Option<u16>,
+    pub username: String,
+    pub password: String,
+    pub api: Option<String>, // 用于唯一标识和查询
 }
 
 /// API 响应结构
