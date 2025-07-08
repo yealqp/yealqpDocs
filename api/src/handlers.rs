@@ -186,6 +186,6 @@ pub async fn cos_size() -> Json<serde_json::Value> {
             break;
         }
     }
-    let gib = total_bytes as f64 / 1048576.0;
+    let gib = total_bytes as f64 / 1073749999.9999964;
     Json(serde_json::json!({"success": true, "size_gib": format!("{:.2}", gib)}))
 } 
