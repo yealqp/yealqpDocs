@@ -19,6 +19,8 @@ src/
 ├── database.rs      # 数据库查询逻辑
 ├── handlers.rs      # HTTP 路由处理器
 ├── error.rs         # 自定义错误类型
+├── database.rs      # 数据库查询逻辑
+├── ssh_query.rs     # 服务器状态查询逻辑
 └── utils.rs         # 工具函数
 ```
 
@@ -39,6 +41,11 @@ src/
 - MySQL 数据库连接
 - 数据查询逻辑
 - 统计信息计算
+
+### ssh_query.rs
+- SSH 服务器的状态查询逻辑
+- 状态计算
+- 状态转换
 
 ### handlers.rs
 - HTTP 端点处理器
@@ -61,14 +68,30 @@ src/
 
 ```toml
 [server]
-host = "127.0.0.1"
-port = 3000
+# backend_host
+host = "0.0.0.0"
+port = 5000
 
 [database]
-url = "mysql://username:password@host:port/"
-```
+# blessingskin_database_host
+url = "mysql://root:password@example.com:3389/database_name" 
 
-**注意**: 请将 `username`、`password`、`host`、`port` 替换为你的实际 MySQL 连接信息。
+[ssh_info]
+# ssh_hosts
+hosts = [
+  { host = "25.25.25.25", port = 22, username = "root", password = "123456", api = "1" },
+  { host = "example.com", port = 22, username = "root", password = "114514", api = "2" }
+
+]
+
+[cos_s3]
+bucket = ""
+region = ""
+endpoint = ""
+access_key = ""
+secret_key = ""
+
+```
 
 ## API 端点
 
@@ -77,6 +100,12 @@ url = "mysql://username:password@host:port/"
 
 ### GET /api/dashboard
 获取仪表盘统计数据
+
+### GET /api/ssh_status
+获取 SSH 服务器的CPU/内存占用
+
+### GET /api/cos_size
+获取COS存储空间使用情况
 
 ## 运行
 
