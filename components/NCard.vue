@@ -29,7 +29,7 @@ const props = withDefaults(
 
 <style scoped>
 .ncard {
-    border: 1px solid #ebedf0;
+    border: 1px solid var(--vp-c-border);
     box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, .15);
     margin-bottom: 2em;
     border-radius: 8px;

@@ -178,14 +178,14 @@ watch(() => props.api, (val) => {
 }
 .cloud-card-1-1 {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 .cloud-card-1-2 {
   width: 48%;
-  min-width: 260px;
-  max-width: 420px;
+  min-width: 330px;
+  max-width: 330px;
   display: inline-block;
   margin-left: 1%;
   margin-right: 1%;
@@ -202,7 +202,7 @@ watch(() => props.api, (val) => {
   .cloud-card-1-2, .cloud-card-1-3 {
     width: 98%;
     max-width: 600px;
-    min-width: 200px;
+    min-width: 300px;
     margin-left: auto;
     margin-right: auto;
     display: block;
