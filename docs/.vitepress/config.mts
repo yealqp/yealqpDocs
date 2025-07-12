@@ -85,6 +85,7 @@ export default defineConfig({
                 { text: "赞助我们", link: "/pay" },
                 { text: "服务器状态", link: "/status" },
                 { text: "云服务器状态", link: "/server" },
+                { text: "免责声明", link: "/disclaimer" },
               ],
             },
             {

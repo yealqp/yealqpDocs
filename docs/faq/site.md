@@ -1,7 +1,9 @@
 <script setup>
 import { faUser, faTrash } from '@fortawesome/free-solid-svg-icons'
 </script>
+
 > [!CAUTION] 本页面修改自Littleskin开源官方文档
+> 由 LittleSkinChina 创建，遵循 [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 授权
 > [<BSSection>点击前往</BSSection>](https://github.com/LittleSkinChina/manual-ng)
 
 # 站点使用相关
