@@ -1,0 +1,212 @@
+/* 哪吒页面的特殊样式 */
+.nezha-page .VPSidebar {
+  display: none !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nezha-page .VPContent {
+  padding-left: 0 !important;
+  transition: padding 0.3s ease;
+}
+
+.nezha-page .VPDoc {
+  padding: 0 !important;
+  transition: padding 0.3s ease;
+}
+
+.nezha-page .VPDocFooter {
+  display: none !important;
+  transition: opacity 0.3s ease;
+}
+
+.nezha-page .VPDocOutlineDropdown {
+  display: none !important;
+  transition: opacity 0.3s ease;
+}
+
+.nezha-page .VPDocAside {
+  display: none !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nezha-page .container {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: max-width 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+.nezha-page .content {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: max-width 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+.nezha-page .content-container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: max-width 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+/* 确保哪吒页面内容不被顶部导航栏遮挡 */
+.nezha-page .VPContent {
+  margin-top: var(--vp-nav-height) !important;
+  transition: margin-top 0.3s ease;
+}
+
+/* 隐藏哪吒页面的标题和其他内容 */
+.nezha-page .VPDoc .container h1,
+.nezha-page .VPDoc .container p {
+  display: none !important;
+  transition: opacity 0.3s ease;
+}
+
+/* 确保内容区域占满整个可用空间 */
+.nezha-page .VPDoc .container {
+  padding-top: 0 !important;
+  transition: padding-top 0.3s ease;
+}
+
+/* 移除页面内容的内边距 */
+.nezha-page .vp-doc {
+  padding-top: 0 !important;
+  transition: padding-top 0.3s ease;
+}
+
+/* 页面过渡动画 */
+.VPContent, 
+.VPSidebar, 
+.VPDoc, 
+.VPDocAside, 
+.container, 
+.content, 
+.content-container {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 导航栏过渡效果 */
+.VPNav {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 页面加载时的平滑过渡 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* 添加页面整体过渡效果 */
+body {
+  transition: background-color 0.3s ease;
+}
+
+/* 从哪吒页面返回时的过渡效果 */
+.VPSidebar {
+  transition: opacity 0.5s ease, transform 0.5s ease, width 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.VPContent {
+  transition: padding-left 0.5s ease, opacity 0.5s ease;
+  will-change: padding-left, opacity;
+}
+
+.VPDocAside {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+/* 根页面特殊过渡效果 */
+.home-page-enter .VPHero,
+.home-page-enter .VPFeatures {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 确保侧边栏平滑显示 */
+.VPSidebar {
+  backface-visibility: hidden;
+}
+
+/* 移动设备上的过渡优化 */
+@media (max-width: 768px) {
+  .VPContent {
+    transition: padding-left 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .VPSidebar {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+/* 全局加载状态样式增强 */
+.loading-overlay {
+  background-color: var(--vp-c-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--vp-c-brand-rgb), 0.1),
+    transparent
+  );
+  animation: loading-shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* 加载进度条动画增强 */
+.progress-bar {
+  background: linear-gradient(
+    90deg, 
+    var(--vp-c-brand), 
+    var(--vp-c-brand-light), 
+    var(--vp-c-brand)
+  );
+  background-size: 200% 100%;
+  animation: progress-animation 2s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+} 

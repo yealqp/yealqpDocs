@@ -17,8 +17,6 @@ anyhow = "1.0"
 thiserror = "1.0"
 config = "0.14"
 sqlx = { version = "0.8.1", features = ["mysql", "runtime-tokio-rustls", "chrono"] }
-async-ssh2-tokio = "0.8.15"
-futures = "0.3"
 reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
 hmac = "0.12"
 sha1 = "0.10"

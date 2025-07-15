@@ -20,7 +20,6 @@ src/
 ├── handlers.rs      # HTTP 路由处理器
 ├── error.rs         # 自定义错误类型
 ├── database.rs      # 数据库查询逻辑
-├── ssh_query.rs     # 服务器状态查询逻辑
 └── utils.rs         # 工具函数
 ```
 
@@ -41,11 +40,6 @@ src/
 - MySQL 数据库连接
 - 数据查询逻辑
 - 统计信息计算
-
-### ssh_query.rs
-- SSH 服务器的状态查询逻辑
-- 状态计算
-- 状态转换
 
 ### handlers.rs
 - HTTP 端点处理器
@@ -76,14 +70,6 @@ port = 5000
 # blessingskin_database_host
 url = "mysql://root:password@example.com:3389/database_name" 
 
-[ssh_info]
-# ssh_hosts
-hosts = [
-  { host = "25.25.25.25", port = 22, username = "root", password = "123456", api = "1" },
-  { host = "example.com", port = 22, username = "root", password = "114514", api = "2" }
-
-]
-
 [cos_s3]
 bucket = ""
 region = ""
@@ -100,9 +86,6 @@ secret_key = ""
 
 ### GET /api/dashboard
 获取仪表盘统计数据
-
-### GET /api/ssh_status
-获取 SSH 服务器的CPU/内存占用
 
 ### GET /api/cos_size
 获取COS存储空间使用情况

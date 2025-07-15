@@ -23,6 +23,16 @@ export default defineConfig({
       gtag('js', new Date());
       gtag('config', '${GTAG_ID}');`,
     ],
+    // 预加载哪吒面板
+    ["link", { rel: "preconnect", href: "https://nezha.yealqp.fun" }],
+    ["link", { rel: "dns-prefetch", href: "https://nezha.yealqp.fun" }],
+    // 添加CSS变量定义
+    ["style", {}, 
+    `:root {
+      --vp-c-brand-rgb: 108, 108, 229;
+      --vp-c-brand-light-rgb: 149, 149, 239;
+    }
+    `],
   ],
 
   lastUpdated: true,
@@ -51,6 +61,7 @@ export default defineConfig({
     logo: "/favicon.ico",
     nav: [
       { text: "BYS皮肤站", link: "https://skin.yealqp.fun/" },
+      { text: "云服状态监控", link: "/nezha" },
     ],
 
     docFooter: {
@@ -84,7 +95,6 @@ export default defineConfig({
               items: [
                 { text: "赞助我们", link: "/pay" },
                 { text: "服务器状态", link: "/status" },
-                { text: "云服务器状态", link: "/server" },
                 { text: "免责声明", link: "/disclaimer" },
               ],
             },

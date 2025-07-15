@@ -12,11 +12,10 @@ mod types;
 mod handlers;
 mod error;
 mod utils;
-mod ssh_query;
 
 use database::Database;
 use types::Config;
-use handlers::{health_check, get_dashboard, ssh_status, cos_size};
+use handlers::{health_check, get_dashboard, cos_size};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -52,7 +51,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let app = Router::new()
         .route("/health", get(health_check))
         .route("/api/dashboard", get(get_dashboard))
-        .route("/api/ssh_status", get(ssh_status))
         .route("/api/cos_size", get(cos_size))
         .layer(cors)
         .with_state(state);
