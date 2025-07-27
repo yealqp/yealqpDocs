@@ -36,7 +36,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("配置加载成功: 服务器地址 {}:{}", config.server.host, config.server.port);
 
     // 创建数据库连接
-    let database = Arc::new(Database::new(&config.database.url).await?);
+    let db_url = format!(
+        "mysql://{}:{}@{}:{}/{}",
+        config.database.user,
+        config.database.password,
+        config.database.host,
+        config.database.port,
+        config.database.database
+    );
+    let database = Arc::new(Database::new(&db_url).await?);
 
     // 创建应用状态
     let state = AppState { database };
