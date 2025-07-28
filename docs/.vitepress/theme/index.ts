@@ -30,6 +30,7 @@ import MinecraftStatus from "../../../components/MinecraftStatus.vue"
 import SkinDashboard from "../../../components/SkinDashboard.vue"
 import CosInfo from "../../../components/CosBucketInfo.vue"
 import NeZhaPanel from "../../../components/NeZhaPanel.vue"
+import ICPFooter from "../../../components/ICPFooter.vue"
 
 // 导入自定义CSS
 import './custom.css'
@@ -47,6 +48,8 @@ export const Theme: ThemeConfig = {
             'layout-top': () => [
                 h(NolebaseHighlightTargetedHeading),
             ],
+            // ICP备案信息页脚
+            'doc-after': () => h(ICPFooter),
         })
     },
     enhanceApp({ app, router }) {
@@ -67,70 +70,35 @@ export const Theme: ThemeConfig = {
             .component('SkinDashboard', SkinDashboard)
             .component('CosInfo', CosInfo)
             .component('NeZhaPanel', NeZhaPanel)
+            .component('ICPFooter', ICPFooter)
         
-        // 添加路由钩子，处理哪吒页面的特殊布局
+        // 优化路由钩子，减少卡顿
         if (router) {
-            // 存储上一个路由状态，用于判断是从哪吒页面切换回来
-            let wasOnNeZhaPage = false;
+            let isNeZhaPage = false;
             
             router.onBeforeRouteChange = (to) => {
-                // 在页面切换前添加过渡类
-                document.documentElement.classList.add('page-transitioning');
+                const wasNeZhaPage = isNeZhaPage;
+                isNeZhaPage = to.endsWith('/nezha');
                 
-                // 检查是否是从哪吒页面切换到其他页面
-                const isLeavingNeZhaPage = document.documentElement.classList.contains('nezha-page') && !to.endsWith('/nezha');
-                
-                if (isLeavingNeZhaPage) {
-                    // 从哪吒页面切换出去时，添加特殊的过渡类
-                    document.documentElement.classList.add('leaving-nezha-page');
-                    wasOnNeZhaPage = true;
-                }
-                
-                // 如果正在进入哪吒页面，立即添加加载中状态
-                if (to.endsWith('/nezha')) {
-                    document.documentElement.classList.add('nezha-loading');
-                }
-                
-                // 延迟执行以允许过渡效果完成
-                setTimeout(() => {
-                    if (to.endsWith('/nezha')) {
-                        // 为哪吒页面添加特殊类名
-                        document.documentElement.classList.add('nezha-page');
-                    } else {
-                        document.documentElement.classList.remove('nezha-page');
-                        document.documentElement.classList.remove('nezha-loading');
+                // 立即更新页面状态，避免延迟
+                if (isNeZhaPage) {
+                    document.documentElement.classList.add('nezha-page', 'nezha-loading');
+                } else {
+                    document.documentElement.classList.remove('nezha-page', 'nezha-loading');
+                    if (wasNeZhaPage) {
+                        document.documentElement.classList.add('leaving-nezha-page');
+                        // 使用requestAnimationFrame优化性能
+                        requestAnimationFrame(() => {
+                            document.documentElement.classList.remove('leaving-nezha-page');
+                        });
                     }
-                    
-                    // 移除过渡类，触发新状态的过渡
-                    setTimeout(() => {
-                        document.documentElement.classList.remove('page-transitioning');
-                        
-                        // 如果是从哪吒页面切换回来，延迟一点移除特殊类，确保过渡效果完成
-                        if (wasOnNeZhaPage && !to.endsWith('/nezha')) {
-                            setTimeout(() => {
-                                document.documentElement.classList.remove('leaving-nezha-page');
-                                wasOnNeZhaPage = false;
-                            }, 300);
-                        }
-                    }, 50);
-                }, 50);
+                }
             }
             
-            // 在页面加载完成后执行
+            // 简化页面加载完成后的处理
             router.onAfterRouteChange = (to) => {
-                // 确保页面平滑滚动到顶部
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                
-                // 如果是切换到根路径，确保侧边栏和内容区域平滑显示
-                if (to === '/' || to === '') {
-                    document.documentElement.classList.add('entering-home-page');
-                    setTimeout(() => {
-                        document.documentElement.classList.remove('entering-home-page');
-                    }, 500);
-                }
+                // 使用更快的滚动方式
+                window.scrollTo(0, 0);
             }
         }
     },
@@ -140,41 +108,12 @@ export const Theme: ThemeConfig = {
             // 检查当前URL是否是哪吒页面
             if (window.location.pathname.endsWith('/nezha')) {
                 document.documentElement.classList.add('nezha-page');
-                document.documentElement.classList.add('nezha-loading');
             }
             
-            // 添加页面过渡样式
+            // 添加简化的页面样式
             const style = document.createElement('style');
             style.textContent = `
-                .page-transitioning .VPContent,
-                .page-transitioning .VPSidebar,
-                .page-transitioning .VPDoc {
-                    opacity: 0.6;
-                    transition: opacity 0.3s ease;
-                }
-                
-                .leaving-nezha-page .VPSidebar,
-                .leaving-nezha-page .VPDocAside {
-                    opacity: 0;
-                    transform: translateX(-20px);
-                    transition: opacity 0.5s ease, transform 0.5s ease;
-                }
-                
-                .leaving-nezha-page .VPContent {
-                    opacity: 0.8;
-                    transition: opacity 0.5s ease, padding-left 0.5s ease;
-                }
-                
-                .entering-home-page .VPSidebar,
-                .entering-home-page .VPDocAside {
-                    animation: fadeSlideIn 0.5s ease forwards;
-                }
-                
-                .entering-home-page .VPContent {
-                    animation: contentSlideIn 0.5s ease forwards;
-                }
-                
-                /* 哪吒页面加载中状态 */
+                /* 哪吒页面加载中状态 - 简化版本 */
                 .nezha-loading .VPDoc::before {
                     content: '';
                     position: fixed;
@@ -184,9 +123,6 @@ export const Theme: ThemeConfig = {
                     bottom: 0;
                     background-color: var(--vp-c-bg);
                     z-index: 100;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                 }
                 
                 .nezha-loading .VPDoc::after {
@@ -199,28 +135,6 @@ export const Theme: ThemeConfig = {
                     font-size: 18px;
                     font-weight: bold;
                     z-index: 101;
-                }
-                
-                @keyframes fadeSlideIn {
-                    from {
-                        opacity: 0;
-                        transform: translateX(-20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                }
-                
-                @keyframes contentSlideIn {
-                    from {
-                        opacity: 0.8;
-                        padding-left: 0;
-                    }
-                    to {
-                        opacity: 1;
-                        padding-left: var(--vp-sidebar-width);
-                    }
                 }
             `;
             document.head.appendChild(style);

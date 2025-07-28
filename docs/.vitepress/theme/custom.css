@@ -50,9 +50,9 @@
   transition: max-width 0.3s ease, padding 0.3s ease, margin 0.3s ease;
 }
 
-/* 确保哪吒页面内容不被顶部导航栏遮挡 */
+/* 移除哪吒页面上方的多余边距，避免出现黑栏 */
 .nezha-page .VPContent {
-  margin-top: var(--vp-nav-height) !important;
+  margin-top: 0 !important;
   transition: margin-top 0.3s ease;
 }
 
@@ -75,85 +75,44 @@
   transition: padding-top 0.3s ease;
 }
 
-/* 页面过渡动画 */
+/* 简化的页面过渡动画 - 减少卡顿 */
 .VPContent, 
 .VPSidebar, 
-.VPDoc, 
-.VPDocAside, 
-.container, 
-.content, 
-.content-container {
-  transition: all 0.3s ease-in-out;
+.VPDoc {
+  transition: opacity 0.15s ease;
 }
 
-/* 导航栏过渡效果 */
+/* 优化导航栏过渡效果 */
 .VPNav {
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.2s ease;
 }
 
-/* 页面加载时的平滑过渡 */
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-slide-enter-from,
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-/* 添加页面整体过渡效果 */
+/* 简化页面加载过渡 */
 body {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-/* 从哪吒页面返回时的过渡效果 */
+/* 优化哪吒页面过渡 */
 .VPSidebar {
-  transition: opacity 0.5s ease, transform 0.5s ease, width 0.5s ease;
-  will-change: opacity, transform;
+  transition: opacity 0.2s ease;
 }
 
 .VPContent {
-  transition: padding-left 0.5s ease, opacity 0.5s ease;
-  will-change: padding-left, opacity;
+  transition: padding-left 0.2s ease;
 }
 
 .VPDocAside {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  will-change: opacity, transform;
-}
-
-/* 根页面特殊过渡效果 */
-.home-page-enter .VPHero,
-.home-page-enter .VPFeatures {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 确保侧边栏平滑显示 */
-.VPSidebar {
-  backface-visibility: hidden;
+  transition: opacity 0.2s ease;
 }
 
 /* 移动设备上的过渡优化 */
 @media (max-width: 768px) {
   .VPContent {
-    transition: padding-left 0.3s ease, opacity 0.3s ease;
+    transition: padding-left 0.15s ease;
   }
   
   .VPSidebar {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.15s ease;
   }
 }
 
@@ -209,4 +168,47 @@ body {
   100% {
     background-position: -100% 0;
   }
-} 
+}
+
+/* 优化页面切换时的闪烁问题 */
+.VPDoc {
+  /* 预留页脚空间，防止布局跳动 */
+  min-height: calc(100vh - var(--vp-nav-height) - 80px);
+  transition: opacity 0.2s ease-out;
+}
+
+/* 页面内容容器优化 */
+.vp-doc {
+  /* 确保内容区域稳定 */
+  position: relative;
+  transition: opacity 0.2s ease-out;
+}
+
+/* 减少页面切换时的视觉跳动 */
+.VPContent {
+  /* 使用 contain 属性优化渲染性能 */
+  contain: layout style;
+}
+
+/* 页脚区域预留空间 */
+.VPDoc .container {
+  /* 为页脚预留空间 */
+  padding-bottom: 80px;
+}
+
+/* 优化页面过渡效果 */
+body {
+  /* 简化硬件加速 */
+  transform: translateZ(0);
+}
+
+/* 页面切换时的快速过渡 */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
