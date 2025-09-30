@@ -6,7 +6,7 @@
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.0",
     "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.0",
     "vitepress": "^2.0.0-alpha.8",
-    "vue-echarts": "^7.0.3",
+    "vue-echarts": "^8.0.0",
     "axios": "^1.10.0",
     "vue-data-ui": "^2.15.4"
   },
