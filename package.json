@@ -8,7 +8,7 @@
     "vitepress": "^2.0.0-alpha.8",
     "vue-echarts": "^7.0.3",
     "axios": "^1.10.0",
-    "vue-data-ui": "^2.15.4"
+    "vue-data-ui": "^3.2.5"
   },
   "scripts": {
     "dev": "vitepress dev docs",
