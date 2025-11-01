@@ -1,14 +1,13 @@
 {
   "devDependencies": {
-    "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@fortawesome/vue-fontawesome": "^3.1.1",
-    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.1",
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.1",
-    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.1",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/vue-fontawesome": "^3.1.2",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.2",
     "vitepress": "^2.0.0-alpha.12",
-    "vue-echarts": "^7.0.3",
-    "axios": "^1.11.0",
-    "vue-data-ui": "^2.17.7"
+    "axios": "^1.13.1",
+    "vue-data-ui": "^3.5.1"
   },
   "scripts": {
     "dev": "vitepress dev docs",
@@ -16,7 +15,7 @@
     "preview": "vitepress preview docs"
   },
   "dependencies": {
-    "axios": "^1.11.0",
-    "sass-embedded": "^1.89.2"
+    "axios": "^1.13.1",
+    "sass-embedded": "^1.93.3"
   }
 }
