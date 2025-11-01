@@ -3,7 +3,7 @@
     <div class="icp-content">
       <p class="icp-text">
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
-          冀ICP备2025123259号-1
+          冀ICP备2025123259号-2
         </a>
       </p>
     </div>

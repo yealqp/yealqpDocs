@@ -4,13 +4,11 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Yea帮助文档",
   description: "Yea帮助文档",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-  ],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
 
   lastUpdated: true,
   sitemap: {
-    hostname: "https://docs.yealqp.fun",
+    hostname: "https://docs.yealqp.cn",
   },
 
   lang: "zh",
@@ -121,7 +119,7 @@ export default defineConfig({
     optimizeDeps: {
       exclude: [
         "@nolebase/vitepress-plugin-enhanced-readabilities/client",
-        "@nolebase/ui"
+        "@nolebase/ui",
       ],
     },
     ssr: {
@@ -130,12 +128,12 @@ export default defineConfig({
         "@nolebase/vitepress-plugin-enhanced-readabilities",
         "@nolebase/vitepress-plugin-highlight-targeted-heading",
         "@nolebase/vitepress-plugin-enhanced-mark",
-        "@nolebase/ui"
+        "@nolebase/ui",
       ],
     },
     server: {
-    host: '0.0.0.0',
-    allowedHosts: [''],
-  },
+      host: "0.0.0.0",
+      allowedHosts: [""],
+    },
   },
 });
