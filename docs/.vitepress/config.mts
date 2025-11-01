@@ -1,38 +1,11 @@
 import { defineConfig } from "vitepress";
 
-let GTAG_ID = "G-TBCY5W7YVR";
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Yea帮助文档",
   description: "Yea帮助文档",
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
-    [
-      "script",
-      {
-        async: "",
-        src: `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`,
-      },
-    ],
-    [
-      "script",
-      {},
-      `window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GTAG_ID}');`,
-    ],
-    // 预加载哪吒面板
-    ["link", { rel: "preconnect", href: "https://nezha.yealqp.fun" }],
-    ["link", { rel: "dns-prefetch", href: "https://nezha.yealqp.fun" }],
-    // 添加CSS变量定义
-    ["style", {}, 
-    `:root {
-      --vp-c-brand-rgb: 108, 108, 229;
-      --vp-c-brand-light-rgb: 149, 149, 239;
-    }
-    `],
   ],
 
   lastUpdated: true,
@@ -61,7 +34,7 @@ export default defineConfig({
     logo: "/favicon.ico",
     nav: [
       { text: "BYS皮肤站", link: "https://skin.yealqp.fun/" },
-      { text: "云服状态监控", link: "/nezha" },
+      { text: "仙林云计算", link: "https://www.xianlin.cloud/" },
     ],
 
     docFooter: {
@@ -94,7 +67,6 @@ export default defineConfig({
             {
               items: [
                 { text: "赞助我们", link: "/pay" },
-                { text: "服务器状态", link: "/status" },
                 { text: "免责声明", link: "/disclaimer" },
               ],
             },
@@ -147,13 +119,18 @@ export default defineConfig({
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@nolebase/vitepress-plugin-enhanced-readabilities/client"],
+      exclude: [
+        "@nolebase/vitepress-plugin-enhanced-readabilities/client",
+        "@nolebase/ui"
+      ],
     },
     ssr: {
       noExternal: [
         // If there are other packages that need to be processed by Vite, you can add them here.
         "@nolebase/vitepress-plugin-enhanced-readabilities",
         "@nolebase/vitepress-plugin-highlight-targeted-heading",
+        "@nolebase/vitepress-plugin-enhanced-mark",
+        "@nolebase/ui"
       ],
     },
     server: {

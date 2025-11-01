@@ -26,14 +26,7 @@ import BSButton from '../../../components/BSButton.vue'
 import BSSection from '../../../components/BSSection.vue'
 import NCard from '../../../components/NCard.vue'
 import Helpme from "../../../components/Helpme.vue"
-import MinecraftStatus from "../../../components/MinecraftStatus.vue"
-import SkinDashboard from "../../../components/SkinDashboard.vue"
-import CosInfo from "../../../components/CosBucketInfo.vue"
-import NeZhaPanel from "../../../components/NeZhaPanel.vue"
 import ICPFooter from "../../../components/ICPFooter.vue"
-
-// 导入自定义CSS
-import './custom.css'
 
 
 export const Theme: ThemeConfig = {
@@ -66,20 +59,16 @@ export const Theme: ThemeConfig = {
             .component('BSSection', BSSection)
             .component('NCard', NCard)
             .component("Helpme", Helpme)
-            .component('MinecraftStatus', MinecraftStatus)
-            .component('SkinDashboard', SkinDashboard)
-            .component('CosInfo', CosInfo)
-            .component('NeZhaPanel', NeZhaPanel)
             .component('ICPFooter', ICPFooter)
         
-        // 优化路由钩子，减少卡顿
-        if (router) {
+        // 优化路由钩子，减少卡顿，并添加顶部加载进度条
+        if (router && typeof window !== 'undefined') {
             let isNeZhaPage = false;
             
             router.onBeforeRouteChange = (to) => {
                 const wasNeZhaPage = isNeZhaPage;
                 isNeZhaPage = to.endsWith('/nezha');
-                
+
                 // 立即更新页面状态，避免延迟
                 if (isNeZhaPage) {
                     document.documentElement.classList.add('nezha-page', 'nezha-loading');
@@ -98,7 +87,9 @@ export const Theme: ThemeConfig = {
             // 简化页面加载完成后的处理
             router.onAfterRouteChange = (to) => {
                 // 使用更快的滚动方式
-                window.scrollTo(0, 0);
+                if (typeof window !== 'undefined') {
+                    window.scrollTo(0, 0);
+                }
             }
         }
     },
