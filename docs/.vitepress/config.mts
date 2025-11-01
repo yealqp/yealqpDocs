@@ -31,7 +31,7 @@ export default defineConfig({
   themeConfig: {
     logo: "/favicon.ico",
     nav: [
-      { text: "BYS皮肤站", link: "https://skin.yealqp.fun/" },
+      { text: "BYS皮肤站", link: "https://skin.yealqp.cn/" },
       { text: "仙林云计算", link: "https://www.xianlin.cloud/" },
     ],
 

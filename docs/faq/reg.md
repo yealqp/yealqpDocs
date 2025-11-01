@@ -11,7 +11,7 @@ BYS和LittleSkin差不多 都是基于[Blessing Skin](https://github.com/bs-comm
 
 ### 注册步骤
 
-1. 进入BYS的[官网](https://skin.yealqp.fun/)注册账号
+1. 进入BYS的[官网](https://skin.yealqp.cn/)注册账号
 2. 网站服务器在香港，连不上可能需要魔法
 3. 点击"现在注册"
 4. 填写邮箱账号、密码和游戏名
@@ -37,7 +37,7 @@ BYS和LittleSkin差不多 都是基于[Blessing Skin](https://github.com/bs-comm
 
 >*参数设置注意事项：*
 >
-- 两个链接可在皮肤站[官网](https://skin.yealqp.fun/)右侧公告栏查看
+- 两个链接可在皮肤站[官网](https://skin.yealqp.cn/)右侧公告栏查看
 - 设置完成后启动游戏
 - 有多角色需要选择角色
 - 连不上皮肤站请使用魔法
