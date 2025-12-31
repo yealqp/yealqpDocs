@@ -1,7 +1,4 @@
-package-lock.json
 node_modules/
-api/target
-api/config.toml
-api/Cargo.lock
 docs/.vitepress/dist
 docs/.vitepress/cache
+.idea/

@@ -14,7 +14,6 @@ sidebar_position: 1
 ## 快速导航
 
 - [BYS相关](faq/reg) - 如何注册皮肤站并开始游戏
-- [传奇人物](heros/yuxudan) - 查看传奇乐子人
 
 <Helpme>如果您在使用过程中遇到任何问题，请随时联系我们的管理员或在社区中提问。</Helpme>
 

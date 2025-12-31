@@ -60,5 +60,5 @@
   - 我们使用了 Google 的人机验证服务（reCAPTCHA）；
 - **Resend**：[安全性](https://resend.com/docs/security)
   - 我们使用了 Resend 的邮件发送服务；
-- **腾讯云**：[隐私保护声明](https://cloud.tencent.com/document/product/301/11470)
-  - 我们使用了腾讯云的云对象存储（COS）以及云数据库 （TDSQL-C MySQL）服务。
+- **仙林云**：[隐私政策](https://www.xianlin.cloud/page/privacy_policy.html)
+  - 我们使用了仙林云的云服务器和数据库服务。

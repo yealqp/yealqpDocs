@@ -4,6 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Yea帮助文档",
   description: "Yea帮助文档",
+    base: "/",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
 
   lastUpdated: true,
